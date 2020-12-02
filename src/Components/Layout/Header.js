@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 //components
 import Dashboard from "../Pages/Dashboard";
@@ -8,57 +8,73 @@ import { Router, Route } from "react-router-dom";
 import { createBrowserHistory as createHistory } from "history";
 import { AmplifySignOut } from "@aws-amplify/ui-react";
 import "bootstrap/dist/css/bootstrap.min.css";
-// import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from "reactstrap";
-import DashboardIcon from "@material-ui/icons/Dashboard";
-import MenuBookIcon from "@material-ui/icons/MenuBook";
-import PersonIcon from "@material-ui/icons/Person";
+import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from "reactstrap";
+// import DashboardIcon from "@material-ui/icons/Dashboard";
+// import MenuBookIcon from "@material-ui/icons/MenuBook";
+// import PersonIcon from "@material-ui/icons/Person";
 
-import {
-  Navbar,
-  Nav,
-  NavItem,
-  Dropdown,
-  DropdownItem,
-  DropdownToggle,
-  DropdownMenu,
-  NavLink,
-} from "reactstrap";
 const history = createHistory();
 
 const Header = (props) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  useEffect(() => {
+    if (props && props.user && props.user.username == "test1") {
+      setIsAdmin(true);
+    }
+  }, [isAdmin]);
+
+  console.log("props", props.user.username);
+  // if (props && props.user && props.user.username == "test1") {
+  //   setIsAdmin(true);
+  // }
 
   const toggle = () => setDropdownOpen(!dropdownOpen);
   return (
     <div>
-      <Router history={history}>
-        <Navbar color="light">
-          <Nav>
-            <NavItem>
-              <DashboardIcon />
-              <NavLink className="text-dark " href="/dashboard" active selected>
-                Dashboard
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <DashboardIcon />
-              <NavLink className="text-dark " href="/dashboard" active selected>
-                Dashboard
-              </NavLink>
-            </NavItem>
+      <div>
+        <Router history={history}>
+          <Navbar color="dark">
+            <NavbarBrand href="/" className="text-white">
+              SJSU Canvas
+            </NavbarBrand>
+            {isAdmin ? (
+              <Nav>
+                <NavItem>
+                  <NavLink className="text-white" href="/">
+                    Dashboard
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink className="text-white" href="/upload">
+                    Upload Course
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink className="text-white" href="/album">
+                    Grade
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink className="text-white" href="/findimage">
+                    Zoom
+                  </NavLink>
+                </NavItem>
+              </Nav>
+            ) : (
+              ""
+            )}
             <NavItem className="text-white ">
               <i className="fa fa-user " aria-hidden="true"></i>
               &nbsp;
               {props.user.username} &nbsp;
             </NavItem>
-          </Nav>
-
-          <AmplifySignOut />
-        </Navbar>
-
-        <Route path="/dashboard" exact component={Dashboard} />
-        <Route path="/upload" exact component="" />
-      </Router>
+            <AmplifySignOut />
+          </Navbar>
+          <Route path="/" exact component={Dashboard} />
+        </Router>
+      </div>
     </div>
   );
 };
