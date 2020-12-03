@@ -2,16 +2,13 @@ import React, { useState, useEffect } from "react";
 
 //components
 import Dashboard from "../Pages/Dashboard";
-// import Upload from "../Upload";
+import UploadCourse from "../Pages/UploadCourse";
 
 import { Router, Route } from "react-router-dom";
 import { createBrowserHistory as createHistory } from "history";
 import { AmplifySignOut } from "@aws-amplify/ui-react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from "reactstrap";
-// import DashboardIcon from "@material-ui/icons/Dashboard";
-// import MenuBookIcon from "@material-ui/icons/MenuBook";
-// import PersonIcon from "@material-ui/icons/Person";
 
 const history = createHistory();
 
@@ -24,11 +21,6 @@ const Header = (props) => {
       setIsAdmin(true);
     }
   }, [isAdmin]);
-
-  console.log("props", props.user.username);
-  // if (props && props.user && props.user.username == "test1") {
-  //   setIsAdmin(true);
-  // }
 
   const toggle = () => setDropdownOpen(!dropdownOpen);
   return (
@@ -47,7 +39,7 @@ const Header = (props) => {
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink className="text-white" href="/upload">
+                  <NavLink className="text-white" href="/uploadcourse">
                     Upload Course
                   </NavLink>
                 </NavItem>
@@ -73,6 +65,7 @@ const Header = (props) => {
             <AmplifySignOut />
           </Navbar>
           <Route path="/" exact component={Dashboard} />
+          <Route path="/uploadcourse" exact component={UploadCourse} />
         </Router>
       </div>
     </div>

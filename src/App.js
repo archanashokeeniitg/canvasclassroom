@@ -15,8 +15,8 @@ Amplify.configure(awsExports);
 function App() {
   const [user, setUser] = useState("");
   useEffect(() => {
-    document.body.style.background =
-      "linear-gradient(45deg, #51547e 30%, #0a3f74 90%)";
+    // document.body.style.background =
+    //   "linear-gradient(45deg, #51547e 30%, #0a3f74 90%)";
 
     //finding and setting loggedin User
     let updateUser = async (authState) => {
