@@ -1,6 +1,108 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const onCreateStudents = /* GraphQL */ `
+  subscription OnCreateStudents {
+    onCreateStudents {
+      id
+      name
+      year
+      courses {
+        id
+        creator
+        category
+        coursename
+        coursedescription
+        studentsenrolled
+        labels
+        studentsincourse {
+          id
+          name
+          year
+          createdAt
+          updatedAt
+        }
+        file {
+          bucket
+          region
+          key
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateStudents = /* GraphQL */ `
+  subscription OnUpdateStudents {
+    onUpdateStudents {
+      id
+      name
+      year
+      courses {
+        id
+        creator
+        category
+        coursename
+        coursedescription
+        studentsenrolled
+        labels
+        studentsincourse {
+          id
+          name
+          year
+          createdAt
+          updatedAt
+        }
+        file {
+          bucket
+          region
+          key
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteStudents = /* GraphQL */ `
+  subscription OnDeleteStudents {
+    onDeleteStudents {
+      id
+      name
+      year
+      courses {
+        id
+        creator
+        category
+        coursename
+        coursedescription
+        studentsenrolled
+        labels
+        studentsincourse {
+          id
+          name
+          year
+          createdAt
+          updatedAt
+        }
+        file {
+          bucket
+          region
+          key
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const onCreateCourseByProf = /* GraphQL */ `
   subscription OnCreateCourseByProf {
     onCreateCourseByProf {
@@ -11,6 +113,24 @@ export const onCreateCourseByProf = /* GraphQL */ `
       coursedescription
       studentsenrolled
       labels
+      studentsincourse {
+        id
+        name
+        year
+        courses {
+          id
+          creator
+          category
+          coursename
+          coursedescription
+          studentsenrolled
+          labels
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
       file {
         bucket
         region
@@ -31,6 +151,24 @@ export const onUpdateCourseByProf = /* GraphQL */ `
       coursedescription
       studentsenrolled
       labels
+      studentsincourse {
+        id
+        name
+        year
+        courses {
+          id
+          creator
+          category
+          coursename
+          coursedescription
+          studentsenrolled
+          labels
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
       file {
         bucket
         region
@@ -51,6 +189,24 @@ export const onDeleteCourseByProf = /* GraphQL */ `
       coursedescription
       studentsenrolled
       labels
+      studentsincourse {
+        id
+        name
+        year
+        courses {
+          id
+          creator
+          category
+          coursename
+          coursedescription
+          studentsenrolled
+          labels
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
       file {
         bucket
         region

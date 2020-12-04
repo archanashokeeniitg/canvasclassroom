@@ -9,6 +9,7 @@ import { createBrowserHistory as createHistory } from "history";
 import { AmplifySignOut } from "@aws-amplify/ui-react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from "reactstrap";
+import Cohorts from "../Pages/Cohorts";
 
 const history = createHistory();
 
@@ -29,7 +30,7 @@ const Header = (props) => {
         <Router history={history}>
           <Navbar color="dark">
             <NavbarBrand href="/" className="text-white">
-              SJSU Canvas
+              Classroom
             </NavbarBrand>
             {isAdmin ? (
               <Nav>
@@ -44,8 +45,8 @@ const Header = (props) => {
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink className="text-white" href="/album">
-                    Grade
+                  <NavLink className="text-white" href="/cohorts">
+                    Cohorts
                   </NavLink>
                 </NavItem>
                 <NavItem>
@@ -66,6 +67,7 @@ const Header = (props) => {
           </Navbar>
           <Route path="/" exact component={Dashboard} />
           <Route path="/courses" exact component={Courses} />
+          <Route path="/cohorts" exact component={Cohorts} />
         </Router>
       </div>
     </div>

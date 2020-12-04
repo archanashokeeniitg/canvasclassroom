@@ -16,7 +16,7 @@ export default function Courses(props) {
     getAllCoursesToState();
   }, [picture]);
   const getAllCoursesToState = async () => {
-    console.log("inside courses oprn");
+    //     console.log("inside courses oprn");
     const result = await API.graphql(graphqlOperation(listCourseByProfs));
     let courseArray = await buildCourseArray(
       result.data.listCourseByProfs.items

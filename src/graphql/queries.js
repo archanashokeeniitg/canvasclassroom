@@ -1,6 +1,69 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const getStudents = /* GraphQL */ `
+  query GetStudents($id: ID!) {
+    getStudents(id: $id) {
+      id
+      name
+      year
+      courses {
+        id
+        creator
+        category
+        coursename
+        coursedescription
+        studentsenrolled
+        labels
+        studentsincourse {
+          id
+          name
+          year
+          createdAt
+          updatedAt
+        }
+        file {
+          bucket
+          region
+          key
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listStudentss = /* GraphQL */ `
+  query ListStudentss(
+    $filter: ModelStudentsFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listStudentss(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        name
+        year
+        courses {
+          id
+          creator
+          category
+          coursename
+          coursedescription
+          studentsenrolled
+          labels
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
 export const getCourseByProf = /* GraphQL */ `
   query GetCourseByProf($id: ID!) {
     getCourseByProf(id: $id) {
@@ -11,6 +74,24 @@ export const getCourseByProf = /* GraphQL */ `
       coursedescription
       studentsenrolled
       labels
+      studentsincourse {
+        id
+        name
+        year
+        courses {
+          id
+          creator
+          category
+          coursename
+          coursedescription
+          studentsenrolled
+          labels
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
       file {
         bucket
         region
@@ -36,6 +117,13 @@ export const listCourseByProfs = /* GraphQL */ `
         coursedescription
         studentsenrolled
         labels
+        studentsincourse {
+          id
+          name
+          year
+          createdAt
+          updatedAt
+        }
         file {
           bucket
           region
@@ -69,6 +157,13 @@ export const searchCourseByProfs = /* GraphQL */ `
         coursedescription
         studentsenrolled
         labels
+        studentsincourse {
+          id
+          name
+          year
+          createdAt
+          updatedAt
+        }
         file {
           bucket
           region

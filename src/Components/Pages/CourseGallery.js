@@ -11,7 +11,7 @@ import {
 } from "reactstrap";
 
 import { API, graphqlOperation } from "aws-amplify";
-import { updateCourseByProf } from "../../graphql/mutations";
+// import { updateCourseByProf } from "../../graphql/mutations";
 import "./CourseGallery.css";
 
 function CourseGallery(props) {
