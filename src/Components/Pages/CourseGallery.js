@@ -1,18 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   Card,
   CardText,
   CardBody,
-  CardLink,
   CardTitle,
   CardSubtitle,
-  Row,
-  Col,
   Button,
 } from "reactstrap";
 
-import { API, graphqlOperation } from "aws-amplify";
-// import { updateCourseByProf } from "../../graphql/mutations";
 import "./CourseGallery.css";
 import CourseDetail from "./CourseDetail";
 
@@ -22,10 +17,6 @@ function CourseGallery(props) {
   const [showDetails, setShowDetails] = useState(false);
   const [courseSelected, setCourseSelected] = useState(false);
   const [selectedItem, setSelectedItem] = useState("");
-
-  // useEffect(() => {
-  //   setShowDetails(false);
-  // }, [Details]);
 
   const handleDetailShowClick = (selectedItem) => {
     console.log("inside click", selectedItem);
@@ -44,17 +35,10 @@ function CourseGallery(props) {
 
   return (
     <div>
-      <div className="container card-list ">
+      <div className=" card-list ">
         {props.courses.map((course, i) => (
           <div className="" key={course.id}>
-            <Card className="jumbotron ">
-              <img
-                width="100%"
-                className="card-image"
-                // src={course.src}
-                src="https://images.fabric.com/images/605/605/AP-895.jpg"
-                alt="Card image cap"
-              />
+            <Card className="jumbotron " style={{ backgroundColor: "pink" }}>
               <CardBody>
                 <CardTitle tag="h5">coursename : {course.coursename}</CardTitle>
                 <Button
