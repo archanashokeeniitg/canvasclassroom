@@ -41,10 +41,21 @@ function UploadCourse(props) {
     console.log("inside handleFormSubmit");
     e.preventDefault();
     console.log("{selectedFile}", selectedFile);
+    console.log("{filename}", selectedFile.name);
+    let fileWithExtn = selectedFile.name;
+    let extn = fileWithExtn.split(".").pop();
+    let extractedContentType = "application/octet-stream";
+    if (extn == "html") extractedContentType = "text/html";
+    if (extn == "css") extractedContentType = "text/css";
+    if (extn == "js") extractedContentType = "application/javascript";
+    if (extn == "png" || extn == "jpg" || extn == "gif")
+      extractedContentType = "image/" + extn;
+    console.log("contentType ", extractedContentType);
 
     //storing image in S3
     Storage.put(selectedFile.name, selectedFile, {
-      contentType: "image/png",
+      // contentType: "image/png",
+      contentType: extractedContentType,
     }).then((result) => {
       const image = {
         // name: selectedFile.name,

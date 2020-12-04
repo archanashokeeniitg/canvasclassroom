@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 //components
 import Dashboard from "../Pages/Dashboard";
-import UploadCourse from "../Pages/UploadCourse";
+import Courses from "../Pages/Courses";
 
 import { Router, Route } from "react-router-dom";
 import { createBrowserHistory as createHistory } from "history";
@@ -39,8 +39,8 @@ const Header = (props) => {
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink className="text-white" href="/uploadcourse">
-                    Upload Course
+                  <NavLink className="text-white" href="/courses">
+                    Courses
                   </NavLink>
                 </NavItem>
                 <NavItem>
@@ -65,7 +65,7 @@ const Header = (props) => {
             <AmplifySignOut />
           </Navbar>
           <Route path="/" exact component={Dashboard} />
-          <Route path="/uploadcourse" exact component={UploadCourse} />
+          <Route path="/courses" exact component={Courses} />
         </Router>
       </div>
     </div>
