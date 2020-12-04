@@ -11,7 +11,7 @@ import { AmplifySignOut } from "@aws-amplify/ui-react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from "reactstrap";
 import Cohorts from "../Pages/Cohorts";
-import Profile from "../Pages/Profile"
+import Profile from "../Pages/StudentProfile"
 import Student from "../Pages/Student"
 
 const history = createHistory();

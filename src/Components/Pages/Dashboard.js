@@ -32,7 +32,7 @@ const Dashboard = () => {
               <CardText>FA20: CMPE-272 Sec 48 - Enterprise SW Plat</CardText>
               <Row>
                 <Col lg="3">
-                  <CardLink href="/dasboard">
+                  <CardLink href="/dashboard">
                     <NotificationsActiveIcon />
                   </CardLink>
                 </Col>
