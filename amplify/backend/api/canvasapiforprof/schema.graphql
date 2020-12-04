@@ -9,6 +9,7 @@ type Students @model {
   name: String
   year: Int
   credits: Int
+  grades: Int
   courses: CourseByProf @connection
 }
 
