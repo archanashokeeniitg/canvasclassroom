@@ -10,7 +10,7 @@ type Students @model {
   year: Int
   credits: Int
   courses: CourseByProf @connection
-  grades: Int
+  grade: String
 }
 
 type CourseByProf

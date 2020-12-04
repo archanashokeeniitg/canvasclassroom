@@ -8,6 +8,9 @@ import {
   listStudentss,
 } from "../../graphql/queries";
 
+import { Button, Form, FormGroup, Label, Input, Col, Row } from "reactstrap";
+import StudentForm from "./StudentForm";
+
 export default function Cohorts() {
   useEffect(() => {
     getallStudentsToState();
@@ -43,13 +46,13 @@ export default function Cohorts() {
       studentName: singleStudent.name,
       studentYear: singleStudent.year,
       studentCourse: singleStudent.courses,
+      studentGrade: singleStudent.grade,
     };
   };
 
-  //getallStudentsToState();
-
   return (
     <div>
+      <StudentForm students={students} />
       <h2>Cohorts</h2>
       <StudentsTable students={students} />
     </div>

@@ -1,9 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { Storage, API, graphqlOperation } from "aws-amplify";
-import { listCourseByProfs, searchCourseByProfs } from "../../graphql/queries";
+import {
+  listCourseByProfs,
+  searchCourseByProfs,
+  listStudentss,
+} from "../../graphql/queries";
+import {
+  createStudents,
+  updateStudents,
+  deleteStudents,
+} from "../../graphql/mutations";
 import UploadCourse from "./UploadCourse";
 import CourseGallery from "./CourseGallery";
-import { Col, Row } from "reactstrap";
+
+import { Button, Form, FormGroup, Label, Input, Col, Row } from "reactstrap";
 
 export default function Student(props) {
   const [courses, setCourses] = useState([]);
@@ -11,6 +21,7 @@ export default function Student(props) {
   useEffect(() => {
     getAllCoursesToState();
   }, [picture]);
+
   const getAllCoursesToState = async () => {
     //     console.log("inside courses oprn");
     const result = await API.graphql(graphqlOperation(listCourseByProfs));

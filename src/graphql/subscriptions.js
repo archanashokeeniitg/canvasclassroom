@@ -21,7 +21,7 @@ export const onCreateStudents = /* GraphQL */ `
           name
           year
           credits
-          grades
+          grade
           createdAt
           updatedAt
         }
@@ -34,7 +34,7 @@ export const onCreateStudents = /* GraphQL */ `
         updatedAt
         owner
       }
-      grades
+      grade
       createdAt
       updatedAt
     }
@@ -60,7 +60,7 @@ export const onUpdateStudents = /* GraphQL */ `
           name
           year
           credits
-          grades
+          grade
           createdAt
           updatedAt
         }
@@ -73,7 +73,7 @@ export const onUpdateStudents = /* GraphQL */ `
         updatedAt
         owner
       }
-      grades
+      grade
       createdAt
       updatedAt
     }
@@ -99,7 +99,7 @@ export const onDeleteStudents = /* GraphQL */ `
           name
           year
           credits
-          grades
+          grade
           createdAt
           updatedAt
         }
@@ -112,7 +112,7 @@ export const onDeleteStudents = /* GraphQL */ `
         updatedAt
         owner
       }
-      grades
+      grade
       createdAt
       updatedAt
     }
@@ -145,7 +145,7 @@ export const onCreateCourseByProf = /* GraphQL */ `
           updatedAt
           owner
         }
-        grades
+        grade
         createdAt
         updatedAt
       }
@@ -187,7 +187,7 @@ export const onUpdateCourseByProf = /* GraphQL */ `
           updatedAt
           owner
         }
-        grades
+        grade
         createdAt
         updatedAt
       }
@@ -229,7 +229,7 @@ export const onDeleteCourseByProf = /* GraphQL */ `
           updatedAt
           owner
         }
-        grades
+        grade
         createdAt
         updatedAt
       }

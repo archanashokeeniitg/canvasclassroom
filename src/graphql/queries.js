@@ -21,7 +21,7 @@ export const getStudents = /* GraphQL */ `
           name
           year
           credits
-          grades
+          grade
           createdAt
           updatedAt
         }
@@ -34,7 +34,7 @@ export const getStudents = /* GraphQL */ `
         updatedAt
         owner
       }
-      grades
+      grade
       createdAt
       updatedAt
     }
@@ -64,7 +64,7 @@ export const listStudentss = /* GraphQL */ `
           updatedAt
           owner
         }
-        grades
+        grade
         createdAt
         updatedAt
       }
@@ -99,7 +99,7 @@ export const getCourseByProf = /* GraphQL */ `
           updatedAt
           owner
         }
-        grades
+        grade
         createdAt
         updatedAt
       }
@@ -134,7 +134,7 @@ export const listCourseByProfs = /* GraphQL */ `
           name
           year
           credits
-          grades
+          grade
           createdAt
           updatedAt
         }
@@ -179,7 +179,7 @@ export const searchCourseByProfs = /* GraphQL */ `
           name
           year
           credits
-          grades
+          grade
           createdAt
           updatedAt
         }
