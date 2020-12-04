@@ -11,7 +11,8 @@ import { AmplifySignOut } from "@aws-amplify/ui-react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from "reactstrap";
 import Cohorts from "../Pages/Cohorts";
-
+import Profile from "../Pages/StudentProfile";
+import Student from "../Pages/Student";
 const history = createHistory();
 
 const Header = (props) => {
@@ -57,7 +58,23 @@ const Header = (props) => {
                 </NavItem>
               </Nav>
             ) : (
-              ""
+              <Nav>
+                <NavItem>
+                  <NavLink className="text-white" href="/">
+                    My Dashboard
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink className="text-white" href="/student">
+                    Courses
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink className="text-white" href="/findimage">
+                    Zoom
+                  </NavLink>
+                </NavItem>
+              </Nav>
             )}
             <NavItem className="text-white ">
               <i className="fa fa-user " aria-hidden="true"></i>
@@ -67,6 +84,8 @@ const Header = (props) => {
             <AmplifySignOut />
           </Navbar>
           <Route path="/" exact component={Dashboard} />
+          <Route path="/profile" exact component={Profile} />
+          <Route path="/student" exact component={Student} />
           <Route path="/courses" exact component={Courses} />
           <Route path="/cohorts" exact component={Cohorts} />
           <Route path="/coursedetail" exact component={CourseDetail} />
