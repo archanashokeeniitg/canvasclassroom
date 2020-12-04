@@ -78,14 +78,15 @@ function UploadCourse(props) {
   };
 
   return (
-    <div className="jumbotron sixteen-nine">
+    <div className="jumbotron ">
       <Form onSubmit={handleFormSubmit}>
+        <p> Add New Course Here </p>
         <FormGroup>
           <Label for="creator">Created By</Label>
           <Input
             type="text"
             value={creator}
-            placeholder="Enter image Tag Here before uploading your file"
+            placeholder=""
             onChange={({ target }) => setCreator(target.value)}
           />
         </FormGroup>
@@ -94,7 +95,7 @@ function UploadCourse(props) {
           <Input
             type="text"
             value={coursename}
-            placeholder="Enter image Tag Here before uploading your file"
+            placeholder=""
             onChange={({ target }) => setCourseName(target.value)}
           />
         </FormGroup>
@@ -103,7 +104,7 @@ function UploadCourse(props) {
           <Input
             type="textarea"
             value={coursedescription}
-            placeholder="Enter image Tag Here before uploading your file"
+            placeholder=""
             onChange={({ target }) => setCourseDescription(target.value)}
           />
         </FormGroup>
@@ -112,7 +113,7 @@ function UploadCourse(props) {
           <Input
             type="text"
             value={category}
-            placeholder="Enter image Tag Here before uploading your file"
+            placeholder=""
             onChange={({ target }) => setCategory(target.value)}
           />
         </FormGroup>
@@ -121,7 +122,7 @@ function UploadCourse(props) {
           <Input
             type="text"
             value={studentsenrolled}
-            placeholder="Enter image Tag Here before uploading your file"
+            placeholder=""
             onChange={({ target }) => setStudentsEnrolled(target.value)}
           />
         </FormGroup>
@@ -131,17 +132,13 @@ function UploadCourse(props) {
           <Input
             type="text"
             value={labels}
-            placeholder="Enter image Tag Here before uploading your file"
+            placeholder=""
             onChange={({ target }) => setLabels(target.value)}
           />
         </FormGroup>
         <FormGroup>
-          <Label for="File">File</Label>
+          <Label for="File">Syllabus</Label>
           <Input type="file" onChange={handleOnFileChange} />
-          <FormText color="muted">
-            This is some placeholder block-level help text for the above input.
-            It's a bit lighter and easily wraps to a new line.
-          </FormText>
         </FormGroup>
         <Button>Submit</Button>
       </Form>

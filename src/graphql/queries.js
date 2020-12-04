@@ -7,6 +7,7 @@ export const getStudents = /* GraphQL */ `
       id
       name
       year
+      credits
       courses {
         id
         creator
@@ -19,6 +20,7 @@ export const getStudents = /* GraphQL */ `
           id
           name
           year
+          credits
           createdAt
           updatedAt
         }
@@ -46,6 +48,7 @@ export const listStudentss = /* GraphQL */ `
         id
         name
         year
+        credits
         courses {
           id
           creator
@@ -78,6 +81,7 @@ export const getCourseByProf = /* GraphQL */ `
         id
         name
         year
+        credits
         courses {
           id
           creator
@@ -121,6 +125,7 @@ export const listCourseByProfs = /* GraphQL */ `
           id
           name
           year
+          credits
           createdAt
           updatedAt
         }
@@ -161,6 +166,7 @@ export const searchCourseByProfs = /* GraphQL */ `
           id
           name
           year
+          credits
           createdAt
           updatedAt
         }

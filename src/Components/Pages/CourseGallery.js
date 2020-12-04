@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Card,
   CardText,
@@ -8,19 +8,44 @@ import {
   CardSubtitle,
   Row,
   Col,
+  Button,
 } from "reactstrap";
 
 import { API, graphqlOperation } from "aws-amplify";
 // import { updateCourseByProf } from "../../graphql/mutations";
 import "./CourseGallery.css";
+import CourseDetail from "./CourseDetail";
 
 function CourseGallery(props) {
   console.log("inside Imagegallery", props, props.courses);
+  const [Details] = useState("");
+  const [showDetails, setShowDetails] = useState(false);
+  const [courseSelected, setCourseSelected] = useState(false);
+  const [selectedItem, setSelectedItem] = useState("");
+
+  // useEffect(() => {
+  //   setShowDetails(false);
+  // }, [Details]);
+
+  const handleDetailShowClick = (selectedItem) => {
+    console.log("inside click", selectedItem);
+    setShowDetails(true);
+    courseSelectedforDescription(selectedItem);
+
+    console.log("inside click 2222", showDetails);
+  };
+  const courseSelectedforDescription = (selectedItem) => {
+    console.log("xxxxxprops.courses.id 11", props.courses, selectedItem);
+    if (props.courses.id == selectedItem) {
+      console.log("xxxxxprops.courses.id", props.courses.id, selectedItem);
+      return "selected";
+    }
+  };
 
   return (
     <div>
       <div className="container card-list ">
-        {props.courses.map((course) => (
+        {props.courses.map((course, i) => (
           <div className="" key={course.id}>
             <Card className="jumbotron ">
               <img
@@ -32,7 +57,15 @@ function CourseGallery(props) {
               />
               <CardBody>
                 <CardTitle tag="h5">coursename : {course.coursename}</CardTitle>
-
+                <Button
+                  key={course.id}
+                  onClick={() =>
+                    handleDetailShowClick({ selectedItem: course.id })
+                  }
+                >
+                  View Details
+                </Button>
+                {showDetails ? <CourseDetail props={course} /> : ""}
                 <CardText>
                   Course Description: {course.coursedescription}
                 </CardText>

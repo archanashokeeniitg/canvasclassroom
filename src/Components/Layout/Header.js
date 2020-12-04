@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 //components
 import Dashboard from "../Pages/Dashboard";
 import Courses from "../Pages/Courses";
+import CourseDetail from "../Pages/CourseDetail";
 
 import { Router, Route } from "react-router-dom";
 import { createBrowserHistory as createHistory } from "history";
@@ -68,6 +69,7 @@ const Header = (props) => {
           <Route path="/" exact component={Dashboard} />
           <Route path="/courses" exact component={Courses} />
           <Route path="/cohorts" exact component={Cohorts} />
+          <Route path="/coursedetail" exact component={CourseDetail} />
         </Router>
       </div>
     </div>
