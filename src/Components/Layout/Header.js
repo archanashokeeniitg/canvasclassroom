@@ -22,10 +22,7 @@ const Header = (props) => {
   const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
-    if (
-      (props && props.user && props.user.username == "test1") ||
-      "professor1"
-    ) {
+    if (props && props.user && props.user.username == "professor1") {
       setIsAdmin(true);
     }
   }, [isAdmin]);
