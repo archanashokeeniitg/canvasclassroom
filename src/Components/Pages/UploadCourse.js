@@ -15,6 +15,7 @@ import {
 
 function UploadCourse(props) {
   const [selectedFile, setSelectedFile] = useState(null);
+  const [alert, setAlert] = useState(false);
   const [creator, setCreator] = useState("");
   const [coursename, setCourseName] = useState("");
   const [coursedescription, setCourseDescription] = useState("");
@@ -72,13 +73,28 @@ function UploadCourse(props) {
         labels: labels,
       };
       console.log("image payload", image);
-      //setAlert(true);
+      setAlert(true);
       sendImageToDB(image);
     });
   };
 
   return (
     <div className="jumbotron ">
+      {alert ? (
+        <div className="alert alert-success alert-dismissible">
+          <button
+            type="button"
+            className="close"
+            data-dismiss="alert"
+            onClick={() => {
+              setAlert(false);
+            }}
+          >
+            &times;
+          </button>
+          <strong>Success!</strong> Image Sucessfully uploaded!!!
+        </div>
+      ) : null}
       <Form onSubmit={handleFormSubmit}>
         <p> Add New Course Here </p>
         <FormGroup>
