@@ -13,34 +13,27 @@ const useStyles = makeStyles((theme) => ({
   },
   bgcolor: "background.paper",
 }));
-const handleChange = (event) => {
-  //setCurrency(event.target.value);
-};
 
-export default function MakeAnnouncement() {
+export default function MakeAnnouncement(props) {
+  console.log("propsssss", props);
   const classes = useStyles();
-  const [currency, setCurrency] = useState("EUR");
-  const currencies = [
-    {
-      value: "USD",
-      label: "$",
-    },
-    {
-      value: "EUR",
-      label: "€",
-    },
-    {
-      value: "BTC",
-      label: "฿",
-    },
-    {
-      value: "JPY",
-      label: "¥",
-    },
-  ];
+  const [selectedCourse, setSelectedCourse] = useState("");
+
+  const handleChange = (event) => {
+    setSelectedCourse(event.target.value);
+    console.log("after selecting", selectedCourse);
+  };
+  const handleFormSubmit = (e) => {
+    console.log("form submitted");
+  };
   return (
     <div className="container  p-5  solid">
-      <form className={classes.root} noValidate autoComplete="off">
+      <form
+        className={classes.root}
+        noValidate
+        autoComplete="off"
+        onSubmit={handleFormSubmit}
+      >
         <div>
           <TextField
             label=" "
@@ -54,16 +47,16 @@ export default function MakeAnnouncement() {
             id="outlined-select-currency-native"
             select
             label=" "
-            value={currency}
+            value={selectedCourse}
             onChange={handleChange}
             SelectProps={{
               native: true,
             }}
             helperText="Please select course "
           >
-            {currencies.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
+            {props.courses.map((course) => (
+              <option key={course.id} value={course.value}>
+                {course.coursename}
               </option>
             ))}
           </TextField>

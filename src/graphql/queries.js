@@ -70,6 +70,71 @@ export const listStudentss = /* GraphQL */ `
     }
   }
 `;
+export const getAnnouncement = /* GraphQL */ `
+  query GetAnnouncement($id: ID!) {
+    getAnnouncement(id: $id) {
+      id
+      subject
+      text
+      courses {
+        id
+        creator
+        category
+        coursename
+        coursedescription
+        studentsenrolled
+        labels
+        studentsincourse {
+          id
+          name
+          year
+          credits
+          grades
+          createdAt
+          updatedAt
+        }
+        file {
+          bucket
+          region
+          key
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listAnnouncements = /* GraphQL */ `
+  query ListAnnouncements(
+    $filter: ModelAnnouncementFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listAnnouncements(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        subject
+        text
+        courses {
+          id
+          creator
+          category
+          coursename
+          coursedescription
+          studentsenrolled
+          labels
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
 export const getCourseByProf = /* GraphQL */ `
   query GetCourseByProf($id: ID!) {
     getCourseByProf(id: $id) {

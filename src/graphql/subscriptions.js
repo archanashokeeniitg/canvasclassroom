@@ -115,6 +115,114 @@ export const onDeleteStudents = /* GraphQL */ `
     }
   }
 `;
+export const onCreateAnnouncement = /* GraphQL */ `
+  subscription OnCreateAnnouncement {
+    onCreateAnnouncement {
+      id
+      subject
+      text
+      courses {
+        id
+        creator
+        category
+        coursename
+        coursedescription
+        studentsenrolled
+        labels
+        studentsincourse {
+          id
+          name
+          year
+          credits
+          grades
+          createdAt
+          updatedAt
+        }
+        file {
+          bucket
+          region
+          key
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateAnnouncement = /* GraphQL */ `
+  subscription OnUpdateAnnouncement {
+    onUpdateAnnouncement {
+      id
+      subject
+      text
+      courses {
+        id
+        creator
+        category
+        coursename
+        coursedescription
+        studentsenrolled
+        labels
+        studentsincourse {
+          id
+          name
+          year
+          credits
+          grades
+          createdAt
+          updatedAt
+        }
+        file {
+          bucket
+          region
+          key
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteAnnouncement = /* GraphQL */ `
+  subscription OnDeleteAnnouncement {
+    onDeleteAnnouncement {
+      id
+      subject
+      text
+      courses {
+        id
+        creator
+        category
+        coursename
+        coursedescription
+        studentsenrolled
+        labels
+        studentsincourse {
+          id
+          name
+          year
+          credits
+          grades
+          createdAt
+          updatedAt
+        }
+        file {
+          bucket
+          region
+          key
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const onCreateCourseByProf = /* GraphQL */ `
   subscription OnCreateCourseByProf {
     onCreateCourseByProf {

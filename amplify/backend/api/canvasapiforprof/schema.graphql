@@ -13,6 +13,12 @@ type Students @model {
   courses: CourseByProf @connection
 }
 
+type Announcement @model {
+  id: ID!
+  subject: String
+  text: String
+  courses: CourseByProf @connection
+}
 type CourseByProf
   @model
   @auth(

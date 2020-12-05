@@ -124,6 +124,123 @@ export const deleteStudents = /* GraphQL */ `
     }
   }
 `;
+export const createAnnouncement = /* GraphQL */ `
+  mutation CreateAnnouncement(
+    $input: CreateAnnouncementInput!
+    $condition: ModelAnnouncementConditionInput
+  ) {
+    createAnnouncement(input: $input, condition: $condition) {
+      id
+      subject
+      text
+      courses {
+        id
+        creator
+        category
+        coursename
+        coursedescription
+        studentsenrolled
+        labels
+        studentsincourse {
+          id
+          name
+          year
+          credits
+          grades
+          createdAt
+          updatedAt
+        }
+        file {
+          bucket
+          region
+          key
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateAnnouncement = /* GraphQL */ `
+  mutation UpdateAnnouncement(
+    $input: UpdateAnnouncementInput!
+    $condition: ModelAnnouncementConditionInput
+  ) {
+    updateAnnouncement(input: $input, condition: $condition) {
+      id
+      subject
+      text
+      courses {
+        id
+        creator
+        category
+        coursename
+        coursedescription
+        studentsenrolled
+        labels
+        studentsincourse {
+          id
+          name
+          year
+          credits
+          grades
+          createdAt
+          updatedAt
+        }
+        file {
+          bucket
+          region
+          key
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteAnnouncement = /* GraphQL */ `
+  mutation DeleteAnnouncement(
+    $input: DeleteAnnouncementInput!
+    $condition: ModelAnnouncementConditionInput
+  ) {
+    deleteAnnouncement(input: $input, condition: $condition) {
+      id
+      subject
+      text
+      courses {
+        id
+        creator
+        category
+        coursename
+        coursedescription
+        studentsenrolled
+        labels
+        studentsincourse {
+          id
+          name
+          year
+          credits
+          grades
+          createdAt
+          updatedAt
+        }
+        file {
+          bucket
+          region
+          key
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const createCourseByProf = /* GraphQL */ `
   mutation CreateCourseByProf(
     $input: CreateCourseByProfInput!

@@ -10,6 +10,7 @@ import {
 
 import "./CourseGallery.css";
 import CourseDetail from "./CourseDetail";
+import DeleteIcon from "@material-ui/icons/Delete";
 
 function CourseGallery(props) {
   console.log("inside Imagegallery", props, props.courses);
@@ -41,15 +42,7 @@ function CourseGallery(props) {
             <Card className="jumbotron " style={{ backgroundColor: "pink" }}>
               <CardBody>
                 <CardTitle tag="h5">coursename : {course.coursename}</CardTitle>
-                <Button
-                  key={course.id}
-                  onClick={() =>
-                    handleDetailShowClick({ selectedItem: course.id })
-                  }
-                >
-                  View Details
-                </Button>
-                {showDetails ? <CourseDetail props={course} /> : ""}
+
                 <CardText>
                   Course Description: {course.coursedescription}
                 </CardText>
@@ -62,7 +55,13 @@ function CourseGallery(props) {
                   <br />
                   last Updated :{course.updatedAt}
                 </CardSubtitle>
-                <CardSubtitle></CardSubtitle>
+                <CardSubtitle>
+                  <DeleteIcon
+                    onClick={(event) => {
+                      props.deleteCourse(course.id);
+                    }}
+                  />
+                </CardSubtitle>
               </CardBody>
             </Card>
             <br />
