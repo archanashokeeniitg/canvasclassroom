@@ -39,9 +39,9 @@ function CourseGallery(props) {
       <div className=" card-list ">
         {props.courses.map((course, i) => (
           <div className="" key={course.id}>
-            <Card className="jumbotron " style={{ backgroundColor: "pink" }}>
+            <Card className="jumbotron m-2" style={{ backgroundColor: "pink" }}>
               <CardBody>
-                <CardTitle tag="h5">coursename : {course.coursename}</CardTitle>
+                <CardTitle tag="h5">{course.coursename}</CardTitle>
 
                 <CardText>
                   Course Description: {course.coursedescription}

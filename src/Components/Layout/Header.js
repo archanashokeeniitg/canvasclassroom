@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 //components
-import Dashboard from "../Pages/Dashboard";
+import Dashboard2 from "../Pages/Dashboard2";
 import Courses from "../Pages/Courses";
 import CourseDetail from "../Pages/CourseDetail";
 
@@ -83,7 +83,7 @@ const Header = (props) => {
             </NavItem>
             <AmplifySignOut />
           </Navbar>
-          <Route path="/" exact component={Dashboard} />
+          <Route path="/" exact component={Dashboard2} />
           <Route path="/profile" exact component={Profile} />
           <Route path="/profprofile" exact component={ProfProfile} />
           <Route path="/studentprofile" exact component={StudentProfile} />
