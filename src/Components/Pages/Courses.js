@@ -14,6 +14,7 @@ export default function Courses(props) {
   //const [courses, setCourses] = useContext(ReferenceDataContext);
   const [courses, setCourses] = useState([]);
   const [picture] = useState("");
+  const [myAlert, setMyAlert] = useState(false);
   useEffect(() => {
     getAllCoursesToState();
   }, [picture]);
@@ -72,7 +73,7 @@ export default function Courses(props) {
         return value.id !== id;
       });
       setCourses(i);
-      //setMyAlert(true);
+      setMyAlert(true);
     } catch (error) {
       console.log(error);
       alert("Cannot delete: User doesn't own this image");
@@ -103,6 +104,15 @@ export default function Courses(props) {
   }
   return (
     <div>
+      {myAlert ? (
+        <div
+          id="success-alert"
+          className="alert alert-danger text-center"
+          role="alert"
+        >
+          Image Deleted successfully!!!
+        </div>
+      ) : null}
       <Row>
         <Col className="col-lg-8">
           <CourseGallery
