@@ -83,42 +83,7 @@ export default function Dashboard() {
               </CardContent>
             </Card>
           </Grid>
-          <Grid item>
-            <Card className="card infected">
-              <CardContent>
-                <Typography color="textSecondary" gutterBottom>
-                  Upcoming Meetings
-                  <br />
-                  <WatchLaterIcon style={{ color: yellow[500] }} />
-                </Typography>
-                <Typography variant="h5"></Typography>
-                <Typography color="textSecondary"></Typography>
-                <Typography variant="body2">
-                  Lorem Ipsum is simply dummy.
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item>
-            <Card className="card infected">
-              <CardContent>
-                <Typography color="textSecondary" gutterBottom>
-                  Notifications
-                  <br />
-                  <NotificationsIcon color="secondary" />
-                </Typography>
-                <Typography variant="h5"></Typography>
-                <Typography></Typography>
-                <Typography variant="body2">
-                  Lorem Ipsum is simply dummy.
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
         </Grid>
-      </div>
-      <div container style={{ justifyContent: "center" }}>
-        <MakeAnnouncement courses={courses} />
       </div>
     </div>
   );
