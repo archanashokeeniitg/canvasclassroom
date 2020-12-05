@@ -5,7 +5,7 @@ import awsExports from "../../aws-exports";
 import "./UploadCourse.css";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 
-function UploadCourse(props) {
+function StudentForm(props) {
   const [studentId, setStudentId] = useState("");
   const [name, setName] = useState("");
   const [studentCourseId, setStudentCourseId] = useState("");
@@ -29,7 +29,7 @@ function UploadCourse(props) {
     //storing image in S3
     const image = {
       id: studentId,
-      studentCourseId: studentCourseId,
+      studentCoursesId: studentCourseId,
       name: name,
       year: year,
       grade: grade,
@@ -103,4 +103,4 @@ function UploadCourse(props) {
   );
 }
 
-export default UploadCourse;
+export default StudentForm;

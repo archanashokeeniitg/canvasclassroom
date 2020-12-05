@@ -11,7 +11,8 @@ import { AmplifySignOut } from "@aws-amplify/ui-react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from "reactstrap";
 import Cohorts from "../Pages/Cohorts";
-import Profile from "../Pages/StudentProfile"
+import ProfProfile from "../Pages/ProfProfile"
+import StudentProfile from "../Pages/StudentProfile"
 import Student from "../Pages/Student"
 
 const history = createHistory();
@@ -43,6 +44,11 @@ const Header = (props) => {
                   </NavLink>
                 </NavItem>
                 <NavItem>
+                  <NavLink className="text-white" href="/profprofile">
+                    Profile
+                  </NavLink>
+                </NavItem>
+                <NavItem>
                   <NavLink className="text-white" href="/courses">
                     Courses
                   </NavLink>
@@ -62,12 +68,12 @@ const Header = (props) => {
               <Nav>
                 <NavItem>
                   <NavLink className="text-white" href="/">
-                    My Dashboard
+                    My Courses
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink className="text-white" href="/student">
-                    Courses
+                  <NavLink className="text-white" href="/studentprofile">
+                    Profile
                   </NavLink>
                 </NavItem>
                 <NavItem>
@@ -85,7 +91,8 @@ const Header = (props) => {
             <AmplifySignOut />
           </Navbar>
           <Route path="/" exact component={Dashboard} />
-          <Route path="/profile" exact component={Profile} />
+          <Route path="/profprofile" exact component={ProfProfile} />
+          <Route path="/studentprofile" exact component={StudentProfile} />
           <Route path="/student" exact component={Student} />
           <Route path="/courses" exact component={Courses} />
           <Route path="/cohorts" exact component={Cohorts} />

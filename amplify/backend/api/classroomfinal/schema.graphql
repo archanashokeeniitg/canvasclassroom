@@ -7,8 +7,8 @@ type S3Object {
 type Students @model {
   id: ID!
   name: String
-  year: Int
-  credits: Int
+  year: String
+  credits: String
   courses: CourseByProf @connection
   grade: String
 }
