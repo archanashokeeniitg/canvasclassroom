@@ -13,6 +13,8 @@ import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from "reactstrap";
 import Cohorts from "../Pages/Cohorts";
 import Profile from "../Pages/StudentProfile";
 import Student from "../Pages/Student";
+import ProfProfile from "../Pages/ProfProfile";
+import StudentProfile from "../Pages/StudentProfile";
 const history = createHistory();
 
 const Header = (props) => {
@@ -42,6 +44,11 @@ const Header = (props) => {
                   </NavLink>
                 </NavItem>
                 <NavItem>
+                  <NavLink className="text-white" href="/profprofile">
+                    Profile
+                  </NavLink>
+                </NavItem>
+                <NavItem>
                   <NavLink className="text-white" href="/courses">
                     Courses
                   </NavLink>
@@ -51,27 +58,17 @@ const Header = (props) => {
                     Cohorts
                   </NavLink>
                 </NavItem>
-                <NavItem>
-                  <NavLink className="text-white" href="/findimage">
-                    Zoom
-                  </NavLink>
-                </NavItem>
               </Nav>
             ) : (
               <Nav>
                 <NavItem>
-                  <NavLink className="text-white" href="/">
-                    My Dashboard
+                  <NavLink className="text-white" href="/studentprofile">
+                    Profile
                   </NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink className="text-white" href="/student">
                     Courses
-                  </NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink className="text-white" href="/findimage">
-                    Zoom
                   </NavLink>
                 </NavItem>
               </Nav>
@@ -85,6 +82,8 @@ const Header = (props) => {
           </Navbar>
           <Route path="/" exact component={Dashboard} />
           <Route path="/profile" exact component={Profile} />
+          <Route path="/profprofile" exact component={ProfProfile} />
+          <Route path="/studentprofile" exact component={StudentProfile} />
           <Route path="/student" exact component={Student} />
           <Route path="/courses" exact component={Courses} />
           <Route path="/cohorts" exact component={Cohorts} />

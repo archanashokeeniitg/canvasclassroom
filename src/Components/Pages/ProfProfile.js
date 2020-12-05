@@ -14,7 +14,7 @@ import {
   Col,
 } from "reactstrap";
 
-function StudentProfile() {
+function ProfProfile() {
   return (
     <div>
       <Jumbotron>
@@ -29,11 +29,13 @@ function StudentProfile() {
                   alt="Card image cap"
                 />
                 <CardBody>
-                  <CardTitle tag="h5">testguest</CardTitle>
+                  <CardTitle tag="h5">testAdmin</CardTitle>
                   <CardSubtitle tag="h6" className="mb-2 text-muted">
-                    Student Account
+                    Administrator Account
                   </CardSubtitle>
-                  <CardText>Here is some information on the Student</CardText>
+                  <CardText>
+                    Here is some information on the Administrator
+                  </CardText>
                 </CardBody>
               </Card>
             </Col>
@@ -44,4 +46,4 @@ function StudentProfile() {
   );
 }
 
-export default StudentProfile;
+export default ProfProfile;

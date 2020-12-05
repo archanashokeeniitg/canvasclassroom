@@ -43,6 +43,7 @@ export default function Cohorts() {
       studentName: singleStudent.name,
       studentYear: singleStudent.year,
       studentCourse: singleStudent.courses,
+      studentGrade: singleStudent.grade,
     };
   };
 

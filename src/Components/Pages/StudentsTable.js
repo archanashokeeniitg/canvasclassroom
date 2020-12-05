@@ -12,6 +12,7 @@ export default function StudentsTable(props) {
               <th>Students Name</th>
               <th>Enrollment Year</th>
               <th>Courses</th>
+              <th>Grades</th>
             </tr>
           </thead>
           <tbody>
@@ -20,6 +21,7 @@ export default function StudentsTable(props) {
                 <td>{student.studentName}</td>
                 <td>{student.studentYear}</td>
                 <td>{student.studentCourse.coursename}</td>
+                <td>{student.studentGrade}</td>
               </tr>
             ))}
           </tbody>
@@ -27,7 +29,7 @@ export default function StudentsTable(props) {
       </div>
       <br />
       <br />
-      Course2
+      <h2>Course 2</h2>
       <div className=" jumbotron">
         <Table striped>
           <thead>
@@ -35,6 +37,7 @@ export default function StudentsTable(props) {
               <th>Students Name</th>
               <th>Enrollment Year</th>
               <th>Courses</th>
+              <th>Grades</th>
             </tr>
           </thead>
           <tbody>
@@ -43,6 +46,7 @@ export default function StudentsTable(props) {
                 <td>{student.studentName}</td>
                 <td>{student.studentYear}</td>
                 <td>{student.studentCourse.coursename}</td>
+                <td>{student.studentGrade}</td>
               </tr>
             ))}
           </tbody>
@@ -50,7 +54,7 @@ export default function StudentsTable(props) {
       </div>
       <br />
       <br />
-      Course3
+      <h2>Course 3</h2>
       <div className=" jumbotron">
         <Table striped>
           <thead>
@@ -58,6 +62,7 @@ export default function StudentsTable(props) {
               <th>Students Name</th>
               <th>Enrollment Year</th>
               <th>Courses</th>
+              <th>Grades</th>
             </tr>
           </thead>
           <tbody>
@@ -66,6 +71,7 @@ export default function StudentsTable(props) {
                 <td>{student.studentName}</td>
                 <td>{student.studentYear}</td>
                 <td>{student.studentCourse.coursename}</td>
+                <td>{student.studentGrade}</td>
               </tr>
             ))}
           </tbody>
