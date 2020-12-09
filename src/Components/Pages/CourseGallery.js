@@ -77,7 +77,7 @@ function CourseGallery(props) {
                 <CardSubtitle tag="h6" className="mb-2 text-muted">
                   Created By : {course.creator}
                   <br />
-                  last Updated :{course.updatedAt}
+                  last Updated :{course.createdAt}
                 </CardSubtitle>
                 <CardSubtitle></CardSubtitle>
               </CardBody>

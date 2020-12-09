@@ -6,6 +6,8 @@ import {
   CardLink,
   CardTitle,
   CardSubtitle,
+  Row,
+  Col,
   Button,
 } from "reactstrap";
 
@@ -48,6 +50,7 @@ function StudentGallery(props) {
               <img
                 width="100%"
                 className="card-image"
+                // src={course.src}
                 src="https://images.fabric.com/images/605/605/AP-895.jpg"
                 alt="Card image cap"
               />
@@ -74,8 +77,9 @@ function StudentGallery(props) {
                 <CardSubtitle tag="h6" className="mb-2 text-muted">
                   Created By : {course.creator}
                   <br />
-                  last Updated :{course.updatedAt}
+                  last Updated :{course.createdAt}
                 </CardSubtitle>
+                <CardSubtitle></CardSubtitle>
               </CardBody>
             </Card>
             <br />
