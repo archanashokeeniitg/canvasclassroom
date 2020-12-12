@@ -10,17 +10,13 @@
 * [Status](#status)
 
 ## General info
-Smart Gallery uses multiple new technologies to ensure that the users have better control and access to their images. From the architectural diagram above, the application is written in React and hosted on AWS Amplify using graphql. The schema has templates for the image object and its information which are stored in both AWS S3 bucket and DynamoDB respectively.
+Classroom is a learning management system that allows for professors and students to communicate remotely; students are able to register for their courses and the professors are able to monitor the registration and the classes. Professors are also able to create courses and upload them to the database with their information.
 
 ## Modules
 
-Authentication is essential and a core area of our application development. With AWS Amplify, we have authentication using username and password, in addition to email and SMS notifications for registration so that only authorized users can access their application. Images uploaded to the bucket are segregated by username using IAM users, so that only the users that uploaded the image can see their images in the application, while those with Admin roles can view all the images in the S3 bucket. Images can also be downloaded locally or deleted from the S3 bucket directly from the application in the browser.
+Authentication is essential and a core area of our application development. With AWS Amplify, we have authentication using username and password, in addition to email and SMS notifications for registration so that only authorized users can access their application. Professors are set to the administrator role and have full view of all the students and the courses created, while the students will only get access to the courses in which they are registered in. The process is implemented in Amplify using AWS Amplify Authentication.
 
-Smart Labeling using Amazon Rekognition is implemented as functionalities of the project. Since we aim to build a platform like Google Photos for image storage, the labels will be used to search and sort the images. The labels will be linked to the react app using graphql and will be stored in the DynamoDB database. Thus, when a user uploads an image, they can also add labels which can be used to identify similar images in the gallery, which are improved in retrieval performance using  Cloudfront CDN, built into Amplify and Route53.
-
-The uploaded images can also be viewed in Album mode, which presents the images in a nice scrolling gallery mode, where images can be rotated and zoomed in. There is also a provided image search using Unsplash API which allows users to search for new images to download and upload to the S3 bucket.
-
-Finally, the application is hosted on Amplify which is complemented by Route53 for custom domain, so that anyone with the URL can access the application.
+For uploading the courses, Amplify is also used as the main infrastructure medium. Uisng Amplify GraphQL allows the program to upload courses into the DynamoDB database using AppSync queries and mutations. When a course is uploaded, different metadata is stored into an object, which is then uploaded into the database by using sendToDB() function, which calls the AppSync createCourse() mutation. In addition to course creation, users can also upload profile images of themselves and their basic contact and user information.
 
 During the development process, code was hosted on GitHub for CI/CD purposes with regular commits. In the beginning, we cloned from a central repository branch and developed our components, and then merged them back into a central repository branch which we hosted on AWS Amplify.
 
@@ -29,25 +25,14 @@ During the development process, code was hosted on GitHub for CI/CD purposes wit
 * AWS Amplify Hosting
 * DynamoDB Tables
 * Appsync API with GraphQL
-* AWS Rekognition
-    * Smart Labeling
-    * AWS Polly
-* Wider image search using Unsplash API
 * Amplify Authentication with Cognito
-* Cloudfront CDN 
-* Autoscaling
-* Multi-AZ Redundancy
-* S3 Lifecycle Policy
-
 ## Technologies
 * React and AWS Amplify
 
 ## Contributors
 
-| Team Orion                 | GitHub Repositories                                                     |
-|----------------------------|-------------------------------------------------------------------------|
-| Babu Rajendran (015237378) | https://github.com/archanashokeeniitg/image-library-appsync/tree/phase2 |
-| Eric Cheng(015300506)      | https://github.com/eccx400/image_gallery                                |
-| Hung Le(010306088)         | https://github.com/HungVLe/image-library-appsync                        |
+* Eric Cheng
+* Archana Shokeen
+* Babu Rajendran
 ## Status
 Project is: _Completed_
