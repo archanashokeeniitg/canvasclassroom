@@ -9,6 +9,7 @@ import {
   Row,
   Col,
   Button,
+  CardImg,
 } from "reactstrap";
 
 import DeleteIcon from "@material-ui/icons/Delete";
@@ -17,21 +18,30 @@ import { API, graphqlOperation } from "aws-amplify";
 import "./CourseGallery.css";
 
 function ProfileGallery(props) {
-
   return (
     <div>
       <div className=" card-list ">
         {props.profile.map((profiles, i) => (
           <div className="" key={profiles.id}>
-            <Card className="jumbotron m-2">
-              <CardBody>
-                <CardTitle tag="h5">{profiles.name}</CardTitle>
-                <CardText>
-                  Course Description: {profiles.description}
-                </CardText>
-                <CardText>Category: {profiles.accountType}</CardText>
-              </CardBody>
-            </Card>
+            <Row>
+              <Col sm="12" md={{ size: 6, offset: 3 }}>
+                <Card>
+                  <CardImg
+                    top
+                    width="100%"
+                    src={profiles.src}
+                    alt="Card image cap"
+                  />
+                  <CardBody>
+                    <CardTitle tag="h5">{profiles.name}</CardTitle>
+                    <CardSubtitle tag="h6" className="mb-2 text-muted">
+                      {profiles.accountType}
+                    </CardSubtitle>
+                    <CardText>{profiles.description}</CardText>
+                  </CardBody>
+                </Card>
+              </Col>
+            </Row>
             <br />
           </div>
         ))}

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Storage, API, graphqlOperation } from "aws-amplify";
-import { createProfile } from "../../graphql/mutations";
+import { updateProfile } from "../../graphql/mutations";
 import awsExports from "../../aws-exports";
 import "./UploadCourse.css";
 import {
@@ -13,6 +13,7 @@ import {
 
 function UploadProfile(props) {
   const [selectedFile, setSelectedFile] = useState(null);
+  const [alert, setAlert] = useState(false);
   const [profileName, setProfileName] = useState("");
   const [profileDescription, setProfileDescription] = useState("");
   const [accountType, setAccountType] = useState("");
@@ -26,7 +27,7 @@ function UploadProfile(props) {
   const sendImageToDB = async (image) => {
     console.log("inside db write", image);
     try {
-      await API.graphql(graphqlOperation(createProfile, { input: image }));
+      await API.graphql(graphqlOperation(updateProfile, { input: image }));
     } catch (err) {
       console.log("db write error");
     }
@@ -53,7 +54,7 @@ function UploadProfile(props) {
       contentType: extractedContentType,
     }).then((result) => {
       const image = {
-        // name: selectedFile.name,
+        id: "101b98fe-4641-4b3c-8e5d-4f47114cfdc5",
         file: {
           bucket: awsExports.aws_user_files_s3_bucket,
           region: awsExports.aws_user_files_s3_bucket_region,
@@ -64,7 +65,7 @@ function UploadProfile(props) {
         description: profileDescription
       };
       console.log("image payload", image);
-      //setAlert(true);
+      setAlert(true);
       sendImageToDB(image);
     });
   };
