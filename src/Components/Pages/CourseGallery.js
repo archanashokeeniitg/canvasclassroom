@@ -11,6 +11,8 @@ import {
   Button,
 } from "reactstrap";
 
+import DeleteIcon from "@material-ui/icons/Delete";
+
 import { API, graphqlOperation } from "aws-amplify";
 import "./CourseGallery.css";
 import CourseDetail from "./CourseDetail";
@@ -43,30 +45,13 @@ function CourseGallery(props) {
 
   return (
     <div>
-      <div className="container card-list ">
+      <div className=" card-list ">
         {props.courses.map((course, i) => (
           <div className="" key={course.id}>
-            <Card className="jumbotron ">
-              <img
-                width="100%"
-                className="card-image"
-                // src={course.src}
-                src="https://images.fabric.com/images/605/605/AP-895.jpg"
-                alt="Card image cap"
-              />
+            <Card className="jumbotron m-2" style={{ backgroundColor: "pink" }}>
               <CardBody>
-                <CardTitle tag="h5">
-                  Course Title : {course.coursename}
-                </CardTitle>
-                <Button
-                  key={course.id}
-                  onClick={() =>
-                    handleDetailShowClick({ selectedItem: course.id })
-                  }
-                >
-                  View Details
-                </Button>
-                {showDetails ? <CourseDetail props={course} /> : ""}
+                <CardTitle tag="h5">{course.coursename}</CardTitle>
+
                 <CardText>
                   Course Description: {course.coursedescription}
                 </CardText>
@@ -77,9 +62,15 @@ function CourseGallery(props) {
                 <CardSubtitle tag="h6" className="mb-2 text-muted">
                   Created By : {course.creator}
                   <br />
-                  last Updated :{course.createdAt}
+                  last Updated :{course.updatedAt}
                 </CardSubtitle>
-                <CardSubtitle></CardSubtitle>
+                <CardSubtitle>
+                  <DeleteIcon
+                    onClick={(event) => {
+                      props.deleteCourse(course.id);
+                    }}
+                  />
+                </CardSubtitle>
               </CardBody>
             </Card>
             <br />

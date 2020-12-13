@@ -4,6 +4,16 @@ type S3Object {
   key: String!
 }
 
+type Profile @model {
+  id: ID!
+  name: String!
+  accountType: String!
+  description: String!
+
+  # Refrence the S3Object  type from a field.
+  file: S3Object
+}
+
 type Students @model {
   id: ID!
   name: String

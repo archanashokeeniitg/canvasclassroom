@@ -26,6 +26,7 @@ During the development process, code was hosted on GitHub for CI/CD purposes wit
 * DynamoDB Tables
 * Appsync API with GraphQL
 * Amplify Authentication with Cognito
+
 ## Technologies
 * React and AWS Amplify
 
