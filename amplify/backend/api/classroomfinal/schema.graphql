@@ -21,6 +21,9 @@ type Students @model {
   credits: String
   courses: CourseByProf @connection
   grade: String
+
+  # Refrence the S3Object  type from a field.
+  file: S3Object
 }
 
 type CourseByProf

@@ -1,69 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Storage, API, graphqlOperation } from "aws-amplify";
-import awsExports from "../../aws-exports";
+import { API, graphqlOperation } from "aws-amplify";
+import { createStudents } from "../../graphql/mutations";
 import "./UploadCourse.css";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
-
-const createStudents = /* GraphQL */ `
-  mutation CreateStudents(
-    $studentCoursesId: String!
-    $name: String!
-    $year: String!
-    $grade: String!
-    $credits: String!
-  ) {
-    createStudents(input: {studentCoursesId: $studentCoursesId, name: $name, year: $year, grade: $grade, credits: $credits}) {
-      _typename
-      id
-      name
-      year
-      credits
-    }
-  }
-`;
-
-const updateStudents = /* GraphQL */ `
-  mutation UpdateStudents(
-    $input: UpdateStudentsInput!
-    $condition: ModelStudentsConditionInput
-  ) {
-    updateStudents(input: $input, condition: $condition) {
-      id
-      name
-      year
-      credits
-      courses {
-        id
-        creator
-        category
-        coursename
-        coursedescription
-        studentsenrolled
-        labels
-        studentsincourse {
-          id
-          name
-          year
-          credits
-          grade
-          createdAt
-          updatedAt
-        }
-        file {
-          bucket
-          region
-          key
-        }
-        createdAt
-        updatedAt
-        owner
-      }
-      grade
-      createdAt
-      updatedAt
-    }
-  }
-`;
 
 function StudentForm(props) {
   const [studentId, setStudentId] = useState("");
@@ -72,6 +11,7 @@ function StudentForm(props) {
   const [year, setYear] = useState("");
   const [grade, setGrade] = useState("");
   const [credits, setCredits] = useState("");
+  const [alert, setAlert] = useState(false);
 
   const sendImageToDB = async (image) => {
     console.log("inside db write", image);
@@ -96,6 +36,7 @@ function StudentForm(props) {
       credits: credits,
     };
     console.log("image payload", image);
+    setAlert(true);
     sendImageToDB(image);
   };
 

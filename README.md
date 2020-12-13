@@ -5,6 +5,7 @@
 * [General info](#general-info)
 * [Modules](#modules)
 * [Feature List](#feature-list)
+* [Screenshots](#screenshots)
 * [Technologies](#technologies)
 * [Contributors](#contributors)
 * [Status](#status)
@@ -26,6 +27,16 @@ During the development process, code was hosted on GitHub for CI/CD purposes wit
 * DynamoDB Tables
 * Appsync API with GraphQL
 * Amplify Authentication with Cognito
+
+## Screenshots
+
+![](./src/Components/Img/Dashboard.PNG)
+
+![](./src/Components/Img/Profile.PNG)
+
+![](./src/Components/Img/Courses.PNG)
+
+![](./src/Components/Img/Students.PNG)
 
 ## Technologies
 * React and AWS Amplify
