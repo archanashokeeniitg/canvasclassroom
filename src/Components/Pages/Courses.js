@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+//import { ReferenceDataContext } from "../ReferenceDataContext";
 import { Storage, API, graphqlOperation } from "aws-amplify";
 import { listCourseByProfs, searchCourseByProfs } from "../../graphql/queries";
 import {
@@ -10,8 +11,10 @@ import CourseGallery from "./CourseGallery";
 import { Col, Row } from "reactstrap";
 
 export default function Courses(props) {
+  //const [courses, setCourses] = useContext(ReferenceDataContext);
   const [courses, setCourses] = useState([]);
   const [picture] = useState("");
+  const [myAlert, setMyAlert] = useState(false);
   useEffect(() => {
     getAllCoursesToState();
   }, [picture]);
@@ -57,12 +60,66 @@ export default function Courses(props) {
       //   key: image.file.key,
     };
   };
+  const deleteCourse = async (imageId) => {
+    const id = {
+      id: imageId,
+    };
+    console.log("courseID selected", id);
+    try {
+      await API.graphql(graphqlOperation(deleteCourseByProf, { input: id }));
+      console.log("inside delete API");
 
+      const i = courses.filter((value, index, arr) => {
+        return value.id !== id;
+      });
+      setCourses(i);
+      setMyAlert(true);
+    } catch (error) {
+      console.log(error);
+      alert("Cannot delete: User doesn't own this image");
+    }
+  };
+
+  const downloadImage = async (image) => {
+    console.log("image", image);
+    const data = await Storage.get(image.key, { download: true }).then((res) =>
+      downloadBlob(res.Body, image.key)
+    );
+  };
+
+  function downloadBlob(blob, filename) {
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = filename || "download";
+    const clickHandler = () => {
+      setTimeout(() => {
+        URL.revokeObjectURL(url);
+        a.removeEventListener("click", clickHandler);
+      }, 150);
+    };
+    a.addEventListener("click", clickHandler, false);
+    a.click();
+    return a;
+  }
   return (
     <div>
+      {myAlert ? (
+        <div
+          id="success-alert"
+          className="alert alert-danger text-center"
+          role="alert"
+        >
+          Course Deleted successfully!!!
+        </div>
+      ) : null}
       <Row>
         <Col className="col-lg-8">
-          <CourseGallery courses={courses} />
+          <CourseGallery
+            courses={courses}
+            deleteCourse={deleteCourse}
+            downloadImage={downloadImage}
+          />
         </Col>
         <Col className="col-lg-4">
           <UploadCourse />

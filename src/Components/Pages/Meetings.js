@@ -24,6 +24,7 @@ export default function Meetings(props) {
   const classes = useStyles();
   const [dateSelected, setDateSelected] = useState(new Date());
   const [meetingSubject, setMeetingSubject] = useState("");
+  const [alert, setAlert] = useState(false);
 
   const handleDateSubmit = (e) => {
     e.preventDefault();
@@ -33,6 +34,7 @@ export default function Meetings(props) {
       meetingsubject: meetingSubject,
       meetingtime: dateSelected,
     };
+    setAlert(true);
     sendMeetingToDB(meeting);
   };
 
@@ -44,9 +46,23 @@ export default function Meetings(props) {
       console.log("db write error");
     }
   };
-
   return (
     <div className="container  p-5 justify-content solid">
+      {alert ? (
+        <div className="alert alert-success alert-dismissible">
+          <button
+            type="button"
+            className="close"
+            data-dismiss="alert"
+            onClick={() => {
+              setAlert(false);
+            }}
+          >
+            &times;
+          </button>
+          <strong>Success!</strong> Meeting successfully created!!!
+        </div>
+      ) : null}
       <div>
         <Typography color="secondary" gutterBottom>
           Set Meetings/Reminders

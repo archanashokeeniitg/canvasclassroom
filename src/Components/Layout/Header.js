@@ -11,7 +11,9 @@ import { AmplifySignOut } from "@aws-amplify/ui-react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from "reactstrap";
 import Cohorts from "../Pages/Cohorts";
-
+// import Student from "../Pages/Student";
+import Profile from "../Pages/Profile";
+// import StudentProfile from "../Pages/StudentProfile";
 const history = createHistory();
 
 const Header = (props) => {
@@ -19,7 +21,7 @@ const Header = (props) => {
   const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
-    if (props && props.user && props.user.username == "test1") {
+    if (props && props.user && props.user.username == "professor1") {
       setIsAdmin(true);
     }
   }, [isAdmin]);
@@ -41,6 +43,12 @@ const Header = (props) => {
                   </NavLink>
                 </NavItem>
                 <NavItem>
+                  <NavLink className="text-white" href="/profile">
+                    Profile
+                  </NavLink>
+                </NavItem>
+
+                <NavItem>
                   <NavLink className="text-white" href="/courses">
                     Courses
                   </NavLink>
@@ -50,14 +58,20 @@ const Header = (props) => {
                     Cohorts
                   </NavLink>
                 </NavItem>
+              </Nav>
+            ) : (
+              <Nav>
                 <NavItem>
-                  <NavLink className="text-white" href="/findimage">
-                    Zoom
+                  <NavLink className="text-white" href="/profile">
+                    Profile
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink className="text-white" href="/courses">
+                    Courses
                   </NavLink>
                 </NavItem>
               </Nav>
-            ) : (
-              ""
             )}
             <NavItem className="text-white ">
               <i className="fa fa-user " aria-hidden="true"></i>
@@ -67,6 +81,7 @@ const Header = (props) => {
             <AmplifySignOut />
           </Navbar>
           <Route path="/" exact component={Dashboard} />
+          <Route path="/profile" exact component={Profile} />
           <Route path="/courses" exact component={Courses} />
           <Route path="/cohorts" exact component={Cohorts} />
           <Route path="/coursedetail" exact component={CourseDetail} />
