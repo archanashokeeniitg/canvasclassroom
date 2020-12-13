@@ -92,7 +92,7 @@ function UploadCourse(props) {
           >
             &times;
           </button>
-          <strong>Success!</strong> Image Sucessfully uploaded!!!
+          <strong>Success!</strong> Image Sucessfully uploaded!!
         </div>
       ) : null}
       <Form onSubmit={handleFormSubmit}>
