@@ -5,6 +5,7 @@
 * [General info](#general-info)
 * [Modules](#modules)
 * [Feature List](#feature-list)
+* [Installation](#installation)
 * [Screenshots](#screenshots)
 * [Technologies](#technologies)
 * [Contributors](#contributors)
@@ -28,6 +29,30 @@ During the development process, code was hosted on GitHub for CI/CD purposes wit
 * Appsync API with GraphQL
 * Amplify Authentication with Cognito
 
+## Installation
+
+For AWS
+* AWS CLI
+* AWS Amplify
+    * Amplify API using GraphQL
+    * Amplify Storage in S3
+    * Amplify Authentication in Cognito
+
+For Local Configuration
+* Nodejs
+* npm
+* Visual Studio Code IDE
+
+Make sure Amplify is setup correctly with the right user authentications and configurations. Check if the aws-export.js file exists in the root directory and is correctly configured to your personal AWS account, S3 bucket, AppSync, and DynamoDB database. Information and problems regarding installation can be resolved in the Amplify documentation.
+
+### Setup
+
+Install all dependencies using `npm install`
+
+Run application by calling `npm start`
+* http://localhost:3000
+
+
 ## Screenshots
 
 ![](./src/Components/Img/Dashboard.PNG)
@@ -40,7 +65,6 @@ During the development process, code was hosted on GitHub for CI/CD purposes wit
 
 ## Technologies
 * React and AWS Amplify
-
 ## Contributors
 
 * Eric Cheng
