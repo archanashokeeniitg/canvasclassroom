@@ -6,8 +6,10 @@ import { Card, CardContent, Typography, Grid } from "@material-ui/core";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import ImportContactsIcon from "@material-ui/icons/ImportContacts";
 import WatchLaterIcon from "@material-ui/icons/WatchLater";
-import MakeAnnouncement from "./MakeAnnouncement";
 import { yellow } from "@material-ui/core/colors";
+import Meetings from "./Meetings";
+import Notifications from "./Notifications";
+import ListCourses from "./ListCourses";
 
 export default function Dashboard() {
   return (
@@ -17,55 +19,33 @@ export default function Dashboard() {
           <Grid item>
             <Card className="card infected">
               <CardContent>
-                <Typography color="textSecondary" gutterBottom>
+                <Typography color="primary" gutterBottom>
                   Courses
                   <br />
                   <ImportContactsIcon color="primary" />
                 </Typography>
-                <Typography variant="h5"></Typography>
-                <Typography color="textSecondary"></Typography>
-                <Typography variant="body2">
-                  Lorem Ipsum is simply dummy.
-                </Typography>
+                <ListCourses />
               </CardContent>
             </Card>
           </Grid>
+
           <Grid item>
             <Card className="card infected">
               <CardContent>
-                <Typography color="textSecondary" gutterBottom>
-                  Upcoming Meetings
-                  <br />
-                  <WatchLaterIcon style={{ color: yellow[500] }} />
-                </Typography>
-                <Typography variant="h5"></Typography>
-                <Typography color="textSecondary"></Typography>
-                <Typography variant="body2">
-                  Lorem Ipsum is simply dummy.
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item>
-            <Card className="card infected">
-              <CardContent>
-                <Typography color="textSecondary" gutterBottom>
+                <Typography color="primary" gutterBottom>
                   Notifications
                   <br />
                   <NotificationsIcon color="secondary" />
                 </Typography>
+                <Notifications />
                 <Typography variant="h5"></Typography>
-                <Typography></Typography>
-                <Typography variant="body2">
-                  Lorem Ipsum is simply dummy.
-                </Typography>
               </CardContent>
             </Card>
           </Grid>
         </Grid>
       </div>
       <div container style={{ justifyContent: "center" }}>
-        <MakeAnnouncement />
+        <Meetings />
       </div>
     </div>
   );

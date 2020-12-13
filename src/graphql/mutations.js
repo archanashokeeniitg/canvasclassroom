@@ -124,6 +124,48 @@ export const deleteStudents = /* GraphQL */ `
     }
   }
 `;
+export const createMeeting = /* GraphQL */ `
+  mutation CreateMeeting(
+    $input: CreateMeetingInput!
+    $condition: ModelMeetingConditionInput
+  ) {
+    createMeeting(input: $input, condition: $condition) {
+      id
+      meetingsubject
+      meetingtime
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateMeeting = /* GraphQL */ `
+  mutation UpdateMeeting(
+    $input: UpdateMeetingInput!
+    $condition: ModelMeetingConditionInput
+  ) {
+    updateMeeting(input: $input, condition: $condition) {
+      id
+      meetingsubject
+      meetingtime
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteMeeting = /* GraphQL */ `
+  mutation DeleteMeeting(
+    $input: DeleteMeetingInput!
+    $condition: ModelMeetingConditionInput
+  ) {
+    deleteMeeting(input: $input, condition: $condition) {
+      id
+      meetingsubject
+      meetingtime
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const createCourseByProf = /* GraphQL */ `
   mutation CreateCourseByProf(
     $input: CreateCourseByProfInput!

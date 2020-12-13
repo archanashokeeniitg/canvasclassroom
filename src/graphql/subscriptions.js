@@ -115,6 +115,39 @@ export const onDeleteStudents = /* GraphQL */ `
     }
   }
 `;
+export const onCreateMeeting = /* GraphQL */ `
+  subscription OnCreateMeeting {
+    onCreateMeeting {
+      id
+      meetingsubject
+      meetingtime
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateMeeting = /* GraphQL */ `
+  subscription OnUpdateMeeting {
+    onUpdateMeeting {
+      id
+      meetingsubject
+      meetingtime
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteMeeting = /* GraphQL */ `
+  subscription OnDeleteMeeting {
+    onDeleteMeeting {
+      id
+      meetingsubject
+      meetingtime
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const onCreateCourseByProf = /* GraphQL */ `
   subscription OnCreateCourseByProf {
     onCreateCourseByProf {

@@ -70,6 +70,35 @@ export const listStudentss = /* GraphQL */ `
     }
   }
 `;
+export const getMeeting = /* GraphQL */ `
+  query GetMeeting($id: ID!) {
+    getMeeting(id: $id) {
+      id
+      meetingsubject
+      meetingtime
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listMeetings = /* GraphQL */ `
+  query ListMeetings(
+    $filter: ModelMeetingFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listMeetings(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        meetingsubject
+        meetingtime
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
 export const getCourseByProf = /* GraphQL */ `
   query GetCourseByProf($id: ID!) {
     getCourseByProf(id: $id) {
