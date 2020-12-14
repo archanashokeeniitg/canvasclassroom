@@ -7,7 +7,7 @@ import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 
 function UploadProfile(props) {
   const [selectedFile, setSelectedFile] = useState(null);
-  const [alert, setAlert] = useState(false);
+  const [myAlert, setMyAlert] = useState(false);
   const [profileName, setProfileName] = useState("");
   const [profileDescription, setProfileDescription] = useState("");
   const [accountType, setAccountType] = useState("");
@@ -58,13 +58,22 @@ function UploadProfile(props) {
         description: profileDescription,
       };
       console.log("image payload", image);
-      setAlert(true);
+      setMyAlert(true);
       sendImageToDB(image);
     });
   };
 
   return (
     <div className="jumbotron ">
+      {myAlert ? (
+        <div
+          id="success-alert"
+          className="alert alert-success text-center"
+          role="alert"
+        >
+          Profile created successfully!!!
+        </div>
+      ) : null}
       <Form onSubmit={handleFormSubmit}>
         <h1> Add User Information </h1>
         <FormGroup>

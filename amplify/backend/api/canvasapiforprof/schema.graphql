@@ -12,7 +12,24 @@ type Students @model {
   grades: Int
   courses: CourseByProf @connection
 }
-type Profile @model {
+
+type Profile
+  @model
+  @auth(
+    rules: [
+      {
+        allow: groups
+        groups: ["Admin"]
+        queries: [get, list]
+        mutations: [create, update, delete]
+      }
+      {
+        allow: owner
+        queries: [get, list]
+        mutations: [create, update, delete]
+      }
+    ]
+  ) {
   id: ID!
   name: String!
   accountType: String!
