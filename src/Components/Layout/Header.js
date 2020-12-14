@@ -61,6 +61,9 @@ const Header = (props) => {
               </Nav>
             ) : (
               <Nav>
+                <NavLink className="text-white" href="/">
+                  Dashboard
+                </NavLink>
                 <NavItem>
                   <NavLink className="text-white" href="/profile">
                     Profile

@@ -20,7 +20,7 @@ import "./CourseGallery.css";
 function ProfileGallery(props) {
   return (
     <div>
-      <div className=" card-list ">
+      <div className=" ">
         {props.profile.map((profiles, i) => (
           <div className="" key={profiles.id}>
             <Row>

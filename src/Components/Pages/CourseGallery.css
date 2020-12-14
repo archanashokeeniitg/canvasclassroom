@@ -1,6 +1,6 @@
 .card-list {
   column-count: 3;
-  /* display: flex; */
+  display: flex;
   /* flex-flow: col; */
 }
 .card--image {
